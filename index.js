@@ -2,9 +2,15 @@ const inquirer = require("inquirer")
 const Manager = require("./lib/manager")
 const Engineer = require("./lib/engineer")
 const Intern = require("./lib/intern")
+const path = require("path");
+const fs = require("fs");
 
+const OUTPUT_DIR = path.resolve(__dirname, "Output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
+
+const render = require("./src/template.js");
 const team = [];
-init()
+init();
 
 function init(){
     console.log("Please build your team!")
@@ -36,16 +42,11 @@ function createManager(){
     ]).then(answers =>{
         const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerNumber)
         team.push(manager)
-        buildTeam()
-
         console.log(team)
+        buildTeam()
     })
 }
 
-function init(){
-    console.log("Please build your team!")
-    createEngineer()
-}
 function createEngineer(){
     inquirer.prompt([
         {
@@ -71,16 +72,13 @@ function createEngineer(){
     ]).then(answers =>{
         const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGitHub)
         team.push(engineer)
-        buildTeam()
 
         console.log(team)
+        buildTeam()
     })
 }
 
-function init(){
-    console.log("Please build your team!")
-    createIntern()
-}
+
 function createIntern(){
     inquirer.prompt([
         {
@@ -106,9 +104,9 @@ function createIntern(){
     ]).then(answers =>{
         const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool)
         team.push(intern)
-        buildTeam()
 
         console.log(team)
+        buildTeam()
     })
 }
 
@@ -129,7 +127,14 @@ function buildTeam(){
         } else if (userChoice === "Intern"){
             createIntern()
         } else {
-            // renderTeam()       
+            createTeam()       
         }
     })
+}
+
+function createTeam(){
+    if(!fs.existsSync(OUTPUT_DIR)){
+        fs.mkdirSync(OUTPUT_DIR)
+    }
+    fs.writeFileSync(outputPath, render(team), "utf-8")
 }
