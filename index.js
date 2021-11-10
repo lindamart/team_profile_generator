@@ -42,31 +42,70 @@ function createManager(){
     })
 }
 
+function init(){
+    console.log("Please build your team!")
+    createEngineer()
+}
+function createEngineer(){
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "engineerName",
+            message: "What is the engineer's name?"
+        },
+        {
+            type: "input",
+            name: "engineerId",
+            message: "What is the engineer's Id?"
+        },
+        {
+            type: "input",
+            name: "engineerEmail",
+            message: "What is the engineer's email?"
+        },
+        {
+            type: "input",
+            name: "engineerGitHub",
+            message: "What is the engineer's GitHub username?"
+        },
+    ]).then(answers =>{
+        const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGitHub)
+        team.push(engineer)
+        buildTeam()
+
+        console.log(team)
+    })
+}
+
+function init(){
+    console.log("Please build your team!")
+    createIntern()
+}
 function createIntern(){
     inquirer.prompt([
         {
             type: "input",
-            name: "managerName",
-            message: "What is the manager's name?"
+            name: "internName",
+            message: "What is the interns's name?"
         },
         {
             type: "input",
-            name: "managerId",
-            message: "What is the manager's Id?"
+            name: "internId",
+            message: "What is the interns's Id?"
         },
         {
             type: "input",
-            name: "managerEmail",
-            message: "What is the manager's email?"
+            name: "internEmail",
+            message: "What is the interns's email?"
         },
         {
             type: "input",
-            name: "managerNumber",
-            message: "What is the manager's office number?"
+            name: "internSchool",
+            message: "What is the interns's school?"
         },
     ]).then(answers =>{
-        const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerNumber)
-        team.push(manager)
+        const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool)
+        team.push(intern)
         buildTeam()
 
         console.log(team)
@@ -86,11 +125,11 @@ function buildTeam(){
         if(userChoice === "Manager"){
             createManager()
         } else if (userChoice === "Engineer"){
-            // fire off createEngineer()
+            createEngineer()
         } else if (userChoice === "Intern"){
-            // fire off createIntern
+            createIntern()
         } else {
-            // fire off renderTeam()       
+            // renderTeam()       
         }
     })
 }
