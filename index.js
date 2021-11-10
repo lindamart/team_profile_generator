@@ -42,6 +42,37 @@ function createManager(){
     })
 }
 
+function createIntern(){
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "managerName",
+            message: "What is the manager's name?"
+        },
+        {
+            type: "input",
+            name: "managerId",
+            message: "What is the manager's Id?"
+        },
+        {
+            type: "input",
+            name: "managerEmail",
+            message: "What is the manager's email?"
+        },
+        {
+            type: "input",
+            name: "managerNumber",
+            message: "What is the manager's office number?"
+        },
+    ]).then(answers =>{
+        const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerNumber)
+        team.push(manager)
+        buildTeam()
+
+        console.log(team)
+    })
+}
+
 function buildTeam(){
     inquirer.prompt([
         {
