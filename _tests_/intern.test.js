@@ -18,7 +18,10 @@ test("Can set id via constructor", ()=>{
 })
 
 test("Can get School name via getSchool()", ()=>{
-    const school = "Temple";
-    const e = new Intern(school)
+    const name = "Linda";
+    const id = 100;
+    const email = "linda@gmail.com"
+    const school = "U of Penn";
+    const e = new Intern(name, id, email, school)
     expect(e.getSchool()).toBe(school);
 })

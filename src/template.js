@@ -3,8 +3,8 @@ const generateTeam = team => {
 
 
 
-const addManager = function (manager) {
-    return `
+    const addManager = function (manager) {
+        return `
 
     
     <div class="mt-4">
@@ -21,11 +21,11 @@ const addManager = function (manager) {
         </div>
     </div>
     `;
-}
+    }
 
-// create Engineer card
-const addEngineer = function (engineer) {
-    return `
+    // create Engineer card
+    const addEngineer = function (engineer) {
+        return `
     <div class="col-4 mt-4">
         <div class="card h-100">
             <div class="card-header">
@@ -40,11 +40,11 @@ const addEngineer = function (engineer) {
         </div>
     </div>
     `
-}
+    }
 
-// create Intern card 
-const addIntern = function (intern) {
-    return `
+    // create Intern card 
+    const addIntern = function (intern) {
+        return `
     <div class="col-4 mt-4">
         <div class="card h-100">
             <div class="card-header">
@@ -59,15 +59,15 @@ const addIntern = function (intern) {
     </div>
 </div>
     `
-};
+    };
 
-const html = [];
+    const html = [];
 
-html.push(team.filter(employee => employee.getRole() === "Manager").map(manager => addManager(manager)));
+    html.push(team.filter(employee => employee.getRole() === "Manager").map(manager => addManager(manager)));
 
-html.push(team.filter(employee => employee.getRole() === "Engineer").map(engineer => addEngineer(engineer)).join(""));
+    html.push(team.filter(employee => employee.getRole() === "Engineer").map(engineer => addEngineer(engineer)).join(""));
 
-html.push(team.filter(employee => employee.getRole() === "Intern").map(intern => addIntern(intern)).join(""));
+    html.push(team.filter(employee => employee.getRole() === "Intern").map(intern => addIntern(intern)).join(""));
 
     return html.join("");
 
@@ -85,10 +85,12 @@ module.exports = team => {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <title>Document</title>
+        <title>Team Generator</title>
     </head>
     <body>
-        
+    <nav class="navbar  bg-danger text-center navbar-fixed-top">
+    <a class="text-center lead ">My Team</a>
+    </nav>
         <div class='container'>
             <div class='row'>
                 <div class='team col-12 d-flex justify-content-center'>

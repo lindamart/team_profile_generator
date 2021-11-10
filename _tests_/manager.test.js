@@ -18,7 +18,11 @@ test("Can set id via constructor", ()=>{
 })
 
 test("Can get office number name via getOfficeNumber()", ()=>{
-    const officeNumber = 555-555-5555;
-    const e = new Manager(officeNumber)
+    const officeNumber = "555-555-5555";
+    const name = "Linda";
+    const email = "linda@gmail.com"
+    const id = 100;
+
+    const e = new Manager(name, id, email, officeNumber)
     expect(e.getOfficeNumber()).toBe(officeNumber);
 })

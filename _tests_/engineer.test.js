@@ -18,7 +18,10 @@ test("Can set id via constructor", ()=>{
 })
 
 test("Can get GitHub name via getGitHub()", ()=>{
-    const gitHub = "lindamart";
-    const e = new Engineer(gitHub)
+    const name = "Linda";
+    const id = 100;
+    const email = "linda@gmail.com"
+    const gitHubName = "lindamart";
+    const e = new Engineer(name, id, email, gitHubName)
     expect(e.getGitHub()).toBe(gitHubName);
 })
