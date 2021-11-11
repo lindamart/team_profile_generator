@@ -2,19 +2,31 @@
 
 ## Description
 
-This is a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. Testing is key to making code maintainable, so you’ll also write a unit test for every part of your code and ensure that it passes each test.
+This is a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. Additionally there is a unit test for the code.
 
 ## Table of Contents 
 
+* [Links](#links)
+
 * [Installation](#installation)
 
-* [Criteria](#criteria) 
+* [Use](#use)
 
-* [Test](#test)
+* [Criteria](#criteria) 
 
 * [Questions](#questions)
 
 * [License](#license)
+
+
+## Links
+GitHub Repository
+
+https://github.com/lindamart/team_profile_generator
+
+
+Walkthrough Video Presentation
+
 
 ## Installation
 
@@ -22,6 +34,18 @@ To install necessary dependencies, run the following command:
 
 ```
 npm i
+```
+## Use
+To invoke the application use the following command:
+
+```bash
+node index.js
+```
+
+To run tests, run the following command:
+
+```
+npm test
 ```
 
 ## Criteria
@@ -62,17 +86,10 @@ THEN I exit the application, and the HTML is generated
 
 ```
 
-## Test
-
-To run tests, run the following command:
-
-```
-npm test
-```
 
 ## Questions
 
-If you have any questions about the repo, open an issue or contact me directly at linda@gmail.com
+If you have any questions about the repo, open an issue or contact me directly at [linda@gmail.com](mailto:linda@gmail.com)
 
 ## License
 
