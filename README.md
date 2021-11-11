@@ -27,6 +27,7 @@ https://github.com/lindamart/team_profile_generator
 
 Walkthrough Video Presentation
 
+https://youtu.be/OIO06u6Re2E
 
 ## Installation
 
